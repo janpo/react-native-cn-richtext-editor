@@ -314,6 +314,12 @@ function xmlNodeToItem(child, tag, newLine, styleList = null) {
     }
   } else {
     text = child.nodeValue;
+    if (!text) {
+      text = child.childNodes[0] && child.childNodes[0].nodeValue;
+      if (!text) {
+        text = '\n';
+      }
+    }
   }
 
   const stype = [];
